@@ -1,0 +1,4 @@
+"Saham","D_KS","P_Value","Keputusan"
+"TLKM",0.0576,0.292,"Terima H0 (sesuai GEV)"
+"ISAT",0.035,0.8701,"Terima H0 (sesuai GEV)"
+"EXCL",0.0304,0.9514,"Terima H0 (sesuai GEV)"
