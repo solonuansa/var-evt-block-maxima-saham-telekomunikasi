@@ -9,6 +9,6 @@ Proyek Manajemen Risiko ini mengestimasi Value at Risk (VaR) harian pada tingkat
 
 ## Menjalankan analisis
 
-Buka [notebook revisi](Analisis/Analisis_VaR_EVT_BM_TLKM_EXCL_ISAT_2019_2025_simple_return_R_revisi.ipynb) di Jupyter dengan kernel R (`IRkernel`). Pasang paket `quantmod`, `evd`, `extRemes`, `moments`, `ggplot2`, `dplyr`, dan `tidyr`, lalu jalankan sel secara berurutan. Notebook mengunduh input harga dan volume dari Yahoo Finance.
+Buka [notebook revisi](Analisis/Analisis_VaR_EVT_BM_TLKM_EXCL_ISAT_2019_2025_simple_return_R_revisi.ipynb) di Jupyter dengan kernel R (`IRkernel`). Pasang paket `quantmod`, `evd`, `extRemes`, `moments`, `ggplot2`, `dplyr`, `tidyr`, dan `tstests`, lalu jalankan sel secara berurutan. Notebook mengunduh input harga dan volume dari Yahoo Finance.
 
 Output revisi tersimpan di notebook. Folder `Analisis/data` memuat salinan historis data Yahoo, `Analisis/output` memuat tabel hasil versi sebelumnya, dan `Referensi` memuat acuan metode serta pedoman tugas.
