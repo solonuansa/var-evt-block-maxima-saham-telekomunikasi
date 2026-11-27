@@ -1,14 +1,19 @@
 # Estimasi Value at Risk Saham Telekomunikasi dengan EVT Block Maxima
 
-Proyek Manajemen Risiko ini mengestimasi Value at Risk (VaR) harian pada tingkat kepercayaan 95% dan 99% untuk TLKM, ISAT, dan EXCL. Metode *Block Maxima* mengambil kerugian terbesar dari setiap blok lima hari perdagangan, lalu memodelkannya dengan distribusi *Generalized Extreme Value* (GEV).
+Proyek ini mengestimasi dan membandingkan risiko kerugian harian saham TLKM, ISAT, dan EXCL menggunakan *Value at Risk* (VaR) pada tingkat kepercayaan 95% dan 99%.
 
-| Periode | Tahun | Penggunaan |
-| --- | --- | --- |
-| Estimasi | 2019–2024 | Mengestimasi parameter GEV dan menghitung VaR harian. |
-| Backtesting | 2025 | Membandingkan ambang VaR tetap dengan kerugian aktual dan mengevaluasi *exception* melalui uji Kupiec dan Christoffersen. |
+## Data dan Metodologi
 
-## Menjalankan analisis
+Analisis memakai harga penutupan yang telah disesuaikan (*Adj Close*) dari Yahoo Finance untuk 2019–2025. Harga TLKM yang kosong pada 19 Juni 2019 direkonstruksi dari harga penutupan yang dilaporkan Profindo.
 
-Buka [notebook revisi](Analisis/Analisis_VaR_EVT_BM_TLKM_EXCL_ISAT_2019_2025_simple_return_R_revisi.ipynb) di Jupyter dengan kernel R (`IRkernel`). Pasang paket `quantmod`, `evd`, `extRemes`, `moments`, `ggplot2`, `dplyr`, `tidyr`, dan `tstests`, lalu jalankan sel secara berurutan. Notebook mengunduh input harga dan volume dari Yahoo Finance.
+Periode estimasi 2019–2024 mencakup 1.455 return harian per saham. Metode *Block Maxima* mengambil kerugian terbesar dari setiap blok lima observasi, lalu memodelkannya dengan distribusi *Generalized Extreme Value* (GEV). Periode backtesting 2025 mencakup 236 observasi per saham dan memakai uji Kupiec serta Christoffersen.
 
-Output revisi tersimpan di notebook. Folder `Analisis/data` memuat salinan historis data Yahoo, `Analisis/output` memuat tabel hasil versi sebelumnya, dan `Referensi` memuat acuan metode serta pedoman tugas.
+## Hasil
+
+| Saham | VaR 95% | VaR 99% | Exception 95% | Exception 99% |
+| --- | ---: | ---: | ---: | ---: |
+| TLKM | 2,71% | 4,29% | 18 | 6 |
+| ISAT | 4,25% | 6,76% | 16 | 4 |
+| EXCL | 3,61% | 5,73% | 5 | 1 |
+
+ISAT memiliki VaR tertinggi pada kedua tingkat kepercayaan, diikuti EXCL dan TLKM. Uji gabungan Christoffersen pada taraf signifikansi 5% hanya menolak hasil TLKM pada VaR 99% (*p* = 0,0430).
